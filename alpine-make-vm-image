@@ -340,6 +340,9 @@ while [ $# -gt 0 ]; do
 	shift $n
 done
 
+: ${SSHKEYS:="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDG7nNgsJuFcrD2RUJKkmXo/pP0HRcF2UR/utqgE7v54VbGpgMDJ31YJKJRKyBEUGXijiyzBpP2wlUn6poPP7078KTV9iA1B3gxXUu7lZzmOa3Jfr45Z3eOldqxaI0HPA4LI+Mw6fyGephxkjnNyk1j5mS55UfsjTjcnYJWTvd4rpPxn6Iindzi4u6U/quKTUmyIAAxq/7kwzOwMKZc53TYBCnry3JqwU8/PhoVAOXfbGiODMANVa3iipYZkopuyykfOCssq11YAP4TwW+Pryd28qlWCxaJs0EYqfE/pCN5UYJmccHKZip7fF+IW+j9NCDZwGFaEMqiuYVk+y+BiTD9RUZoGtWpN5yhuJKLnROs48OO5gDGlXiP2tn39qfWf6O/p/kWjDV+pcjMWMupoJExYDyimrs1gcM0tH/rAXEpat6i0zvb0muCBebXYDdfzJ7gqCZGUTpIWhWb6PXdIn2F41uCKzJ43rpYQ4/j0Y6zjmeWS21ybTNL8fPla8m5dn3ijnagcPO79UB8rXvm4xxFtlptJ679j5pdpFH8PmzQWbsiKbDVSls+76M4i/uyZ+TzthxQQbqrQ/OX0MCTiCaVM58EsDR17YaTRnUslYXJoni++PWn8hyxncZesN2jEDDSS9G0eSRo2W+LjWWZU4cy/p3wd5JwAbJRqyFRxj7JXw== michael@iMac
+"}
+: ${OWNER:="admin"}
 : ${ALPINE_BRANCH:="latest-stable"}
 : ${ALPINE_MIRROR:="http://dl-cdn.alpinelinux.org/alpine"}
 : ${CLEANUP:="yes"}
@@ -492,6 +495,15 @@ if [ "$PACKAGES" ]; then
 	einfo 'Installing additional packages'
 	_apk add --root . $PACKAGES
 fi
+
+#-----------------------------------------------------------------------
+
+adduser ${OWNER}
+echo '%wheel ALL=(ALL) ALL' > /etc/sudoers.d/wheel
+adduser ${OWNER} wheel
+mkdir /home/${OWNER}/.ssh
+echo "${SSHKEYS}" > /home/${OWNER}/.ssh/authorized_keys
+chmod 0600 /home/${OWNER}.ssh -R
 
 #-----------------------------------------------------------------------
 if [ "$SCRIPT" ]; then
