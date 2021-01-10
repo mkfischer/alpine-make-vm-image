@@ -499,11 +499,11 @@ fi
 #-----------------------------------------------------------------------
 
 # adduser ${OWNER} || True
-echo '%wheel ALL=(ALL) ALL' > /etc/sudoers.d/wheel
-adduser ${OWNER} wheel || True
-mkdir -p  /home/${OWNER}/.ssh
-echo "${SSHKEYS}" > /home/${OWNER}/.ssh/authorized_keys
-chmod 0600 /home/${OWNER}/.ssh -R || True
+#echo '%wheel ALL=(ALL) ALL' > /etc/sudoers.d/wheel
+#adduser ${OWNER} wheel || True
+#mkdir -p  /home/${OWNER}/.ssh
+#echo "${SSHKEYS}" > /home/${OWNER}/.ssh/authorized_keys
+#chmod 0600 /home/${OWNER}/.ssh -R || True
 
 #-----------------------------------------------------------------------
 if [ "$SCRIPT" ]; then
