@@ -15,8 +15,8 @@ cat > /etc/network/interfaces <<-EOF
 	iface lo inet loopback
 	iface eth0 inet dhcp
 EOF
-#ln -s networking /etc/init.d/net.lo
-#ln -s networking /etc/init.d/net.eth0
+ln -s networking /etc/init.d/net.lo
+ln -s networking /etc/init.d/net.eth0
 
 step 'Adjust rc.conf'
 sed -Ei \
