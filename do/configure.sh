@@ -32,12 +32,3 @@ rc-update add crond default
 rc-update add net.eth0 default
 rc-update add net.lo boot
 rc-update add termencoding boot
-
-adduser ${OWNER} || True
-echo '%wheel ALL=(ALL) ALL' > /etc/sudoers.d/wheel
-adduser ${OWNER} wheel || True
-mkdir -p  /home/${OWNER}/.ssh
-echo "${SSHKEYS}" > /home/${OWNER}/.ssh/authorized_keys
-chmod 0600 /home/${OWNER}/.ssh -R || True
-
-/etc/init.d/ssh start
