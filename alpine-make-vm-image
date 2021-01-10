@@ -103,7 +103,7 @@ alpine-devel@lists.alpinelinux.org-5261cecb.rsa.pub:MIIBIjANBgkqhkiG9w0BAQEFAAOC
 : ${APK_TOOLS_SHA256:="efe948160317fe78058e207554d0d9195a3dfcc35f77df278d30448d7b3eb892"}
 
 : ${APK:="apk"}
-: ${APK_OPTS:="--no-progress"}
+: ${APK_OPTS:="--no-progress --no-cache"}
 
 
 # For compatibility with systems that does not have "realpath" command.
