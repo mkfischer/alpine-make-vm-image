@@ -498,7 +498,7 @@ fi
 
 #-----------------------------------------------------------------------
 
-adduser ${OWNER} || True
+# adduser ${OWNER} || True
 echo '%wheel ALL=(ALL) ALL' > /etc/sudoers.d/wheel
 adduser ${OWNER} wheel || True
 mkdir -p  /home/${OWNER}/.ssh
