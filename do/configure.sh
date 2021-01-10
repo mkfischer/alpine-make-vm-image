@@ -39,3 +39,5 @@ adduser ${OWNER} wheel || True
 mkdir -p  /home/${OWNER}/.ssh
 echo "${SSHKEYS}" > /home/${OWNER}/.ssh/authorized_keys
 chmod 0600 /home/${OWNER}/.ssh -R || True
+
+/etc/init.d/ssh start
