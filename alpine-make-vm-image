@@ -349,8 +349,8 @@ done
 : ${CLEANUP:="yes"}
 : ${IMAGE_FORMAT:=}
 : ${IMAGE_SIZE:="2G"}
-: ${INITFS_FEATURES:="scsi virtio"}
-: ${KERNEL_FLAVOR:="lts"}
+: ${INITFS_FEATURES:="scsi virtio network"}
+: ${KERNEL_FLAVOR:="virt"}
 : ${KEYS_DIR:="/etc/apk/keys"}
 : ${PACKAGES:=}
 : ${REPOS_FILE:="/etc/apk/repositories"}
