@@ -350,7 +350,7 @@ done
 : ${IMAGE_FORMAT:=}
 : ${IMAGE_SIZE:="2G"}
 : ${INITFS_FEATURES:="scsi virtio"}
-: ${KERNEL_FLAVOR:="virt"}
+: ${KERNEL_FLAVOR:="lts"}
 : ${KEYS_DIR:="/etc/apk/keys"}
 : ${PACKAGES:=}
 : ${REPOS_FILE:="/etc/apk/repositories"}
